@@ -14,4 +14,18 @@ namespace FluentMigratorDemo.Migrations
             Delete.Column("Country").FromTable("Member");
         }
     }
+
+    [Migration(3)]
+    public class AddPincodeColumn : Migration
+    {
+        public override void Up()
+        {
+            Alter.Table("Member")
+                .AddColumn("Pincode").AsString();
+        }
+        public override void Down()
+        {
+            Delete.Column("Pincode").FromTable("Member");
+        }
+    }
 }
